@@ -12,7 +12,7 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
         'trash' => POP_COMMENTSTATUS_TRASH,
     ];
     protected $popToCMSCommentStatusConversion;
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -30,6 +30,10 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
         // Convert from the CMS status to PoP's one
         return $this->popToCMSCommentStatusConversion[$status];
     }
+    protected function getFilterDataloadingModule(): ?array
+    {
+        return null;
+    }
     public function getComments($query, array $options = [])
     {
         if ($return_type = $options['return-type']) {
@@ -37,6 +41,10 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
                 $query['fields'] = 'ids';
             }
         }
+
+        // Accept field atts to filter the API fields
+        $this->maybeFilterDataloadQueryArgs($query, $options, $this->getFilterDataloadingModule());
+
         // Convert the parameters
         if (isset($query['status'])) {
 
@@ -70,7 +78,7 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
         }
         // For the comments, if there's no limit then it brings all results
         if ($query['limit']) {
-            
+
             $query['number'] = $query['limit'];
             unset($query['limit']);
         }
@@ -78,7 +86,7 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             // Same param name, so do nothing
         }
         // Only comments, no trackbacks or pingbacks
-        $query['type'] = 'comment'; 
+        $query['type'] = 'comment';
 
         $query = HooksAPIFacade::getInstance()->applyFilters(
             'CMSAPI:comments:query',
