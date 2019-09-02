@@ -17,7 +17,18 @@ Code to be migrated, from legacy PHP 5 code to modern PHP 7 code ([read more her
 Via Composer
 
 ``` bash
-$ composer require getpop/migrate-comments-wp
+$ composer require getpop/migrate-comments-wp dev-master
+```
+
+**Note:** Your `composer.json` file must have the configuration below to accept minimum stability `"dev"` (there are no releases for PoP yet, and the code is installed directly from the `master` branch):
+
+```javascript
+{
+    ...
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    ...
+}
 ```
 
 ([PoP](https://github.com/leoloso/PoP) must be installed)
