@@ -33,10 +33,6 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
         // Convert from the CMS status to PoP's one
         return $this->popToCMSCommentStatusConversion[$status];
     }
-    protected function getFilterDataloadingModule(): ?array
-    {
-        return null;
-    }
     public function getComments($query, array $options = [])
     {
         if ($return_type = $options['return-type']) {
@@ -46,7 +42,7 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
         }
 
         // Accept field atts to filter the API fields
-        $this->maybeFilterDataloadQueryArgs($query, $options, $this->getFilterDataloadingModule());
+        $this->maybeFilterDataloadQueryArgs($query, $options);
 
         // Convert the parameters
         if (isset($query['status'])) {
