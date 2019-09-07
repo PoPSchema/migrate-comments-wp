@@ -84,6 +84,39 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
         if (isset($query['search'])) {
             // Same param name, so do nothing
         }
+        // Filtering by date: Instead of operating on the query, it does it through filter 'posts_where'
+        if (isset($query['date-from'])) {
+
+            $query['date_query'][] = [
+                'after' => $query['date-from'],
+                'inclusive' => false,
+            ];
+            unset($query['date-from']);
+        }
+        if (isset($query['date-from-inclusive'])) {
+
+            $query['date_query'][] = [
+                'after' => $query['date-from-inclusive'],
+                'inclusive' => true,
+            ];
+            unset($query['date-from-inclusive']);
+        }
+        if (isset($query['date-to'])) {
+
+            $query['date_query'][] = [
+                'before' => $query['date-to'],
+                'inclusive' => false,
+            ];
+            unset($query['date-to']);
+        }
+        if (isset($query['date-to-inclusive'])) {
+
+            $query['date_query'][] = [
+                'before' => $query['date-to-inclusive'],
+                'inclusive' => true,
+            ];
+            unset($query['date-to-inclusive']);
+        }
         // Only comments, no trackbacks or pingbacks
         $query['type'] = 'comment';
 
