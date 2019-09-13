@@ -17,11 +17,11 @@ class ObjectPropertyResolver extends \PoP\Comments\ObjectPropertyResolver_Base
     }
     public function getCommentUserId($comment)
     {
-        return $comment->user_id;
+        return (int)$comment->user_id;
     }
     public function getCommentPostId($comment)
     {
-        return $comment->comment_post_ID;
+        return (int)$comment->comment_post_ID;
     }
     public function isCommentApproved($comment)
     {
@@ -33,7 +33,7 @@ class ObjectPropertyResolver extends \PoP\Comments\ObjectPropertyResolver_Base
     }
     public function getCommentParent($comment)
     {
-        return $comment->comment_parent;
+        return (int)$comment->comment_parent;
     }
     public function getCommentDateGmt($comment)
     {
@@ -41,11 +41,11 @@ class ObjectPropertyResolver extends \PoP\Comments\ObjectPropertyResolver_Base
     }
     public function getCommentId($comment)
     {
-        return $comment->comment_ID;
+        return (int)$comment->comment_ID;
     }
     public function getCommentAuthor($comment)
     {
-        return $comment->comment_author;
+        return (int)$comment->comment_author;
     }
     public function getCommentAuthorEmail($comment)
     {
