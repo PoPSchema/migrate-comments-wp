@@ -46,11 +46,13 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
 
         // Convert the parameters
         if (isset($query['status'])) {
-
             $query['status'] = $this->convertCommentStatusFromPoPToCMS($query['status']);
         }
+        if (isset($query['include'])) {
+            $query['comment__in'] = $query['include'];
+            unset($query['include']);
+        }
         if (isset($query['post-id'])) {
-
             $query['post_id'] = $query['post-id'];
             unset($query['post-id']);
         }
