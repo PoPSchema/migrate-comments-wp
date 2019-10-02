@@ -185,9 +185,9 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
         }
         return wp_insert_comment($comment_data);
     }
-    public function getCommentsNumber($post_id)
+    public function getCommentsNumber($post_id): int
     {
-        return get_comments_number($post_id);
+        return (int)get_comments_number($post_id);
     }
 }
 
