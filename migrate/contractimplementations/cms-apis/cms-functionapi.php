@@ -1,7 +1,7 @@
 <?php
 namespace PoP\Comments\WP;
 use PoP\Hooks\Facades\HooksAPIFacade;
-use PoP\ComponentModel\DataloaderAPITrait;
+use PoP\API\Dataloaders\DataloaderAPITrait;
 
 class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
 {
