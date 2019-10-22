@@ -3,6 +3,7 @@ namespace PoP\Comments\WP;
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\LooseContracts\Facades\Contracts\NameResolverFacade;
 use PoP\LooseContracts\Facades\Contracts\LooseContractManagerFacade;
+use PoP\LooseContracts\Contracts\AbstractLooseContractResolutionSet;
 
 class CMSLooseContractImplementations extends AbstractLooseContractResolutionSet
 {
