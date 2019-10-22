@@ -1,6 +1,7 @@
 <?php
 namespace PoP\Comments\WP;
 use PoP\Hooks\Facades\HooksAPIFacade;
+use PoP\LooseContracts\Facades\Contracts\NameResolverFacade;
 
 class CMSLooseContractImplementations
 {
@@ -25,7 +26,7 @@ class CMSLooseContractImplementations
 			'popcms:deleteComment',
 		]);
 
-		$nameresolver = \PoP\LooseContracts\NameResolverFactory::getInstance();
+		$nameresolver = NameResolverFacade::getInstance();
 		$nameresolver->implementNames([
 			'popcms:dbcolumn:orderby:comments:date' => 'comment_date_gmt',
 			'popcms:dbcolumn:orderby:posts:comment-count' => 'comment_count',
