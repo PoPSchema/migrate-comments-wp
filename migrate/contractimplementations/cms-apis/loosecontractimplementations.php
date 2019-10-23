@@ -1,9 +1,9 @@
 <?php
 namespace PoP\Comments\WP;
 use PoP\Hooks\Facades\HooksAPIFacade;
-use PoP\LooseContracts\Facades\Contracts\NameResolverFacade;
-use PoP\LooseContracts\Facades\Contracts\LooseContractManagerFacade;
-use PoP\LooseContracts\Contracts\AbstractLooseContractResolutionSet;
+use PoP\LooseContracts\Facades\NameResolverFacade;
+use PoP\LooseContracts\Facades\LooseContractManagerFacade;
+use PoP\LooseContracts\AbstractLooseContractResolutionSet;
 
 class CMSLooseContractImplementations extends AbstractLooseContractResolutionSet
 {
