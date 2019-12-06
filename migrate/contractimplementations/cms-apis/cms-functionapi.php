@@ -1,11 +1,11 @@
 <?php
 namespace PoP\Comments\WP;
 use PoP\Hooks\Facades\HooksAPIFacade;
-use PoP\API\Dataloaders\DataloaderAPITrait;
+use PoP\API\Dataloaders\APITypeDataResolverTrait;
 
 class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
 {
-    use DataloaderAPITrait;
+    use APITypeDataResolverTrait;
 
     protected $cmsToPoPCommentStatusConversion = [
         // 'all' => POP_COMMENTSTATUS_ALL,
