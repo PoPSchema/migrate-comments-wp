@@ -52,15 +52,15 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $query['comment__in'] = $query['include'];
             unset($query['include']);
         }
-        if (isset($query['post-id'])) {
-            $query['post_id'] = $query['post-id'];
-            unset($query['post-id']);
+        if (isset($query['postID'])) {
+            $query['post_id'] = $query['postID'];
+            unset($query['postID']);
         }
         if (\PoP\Comments\Server::mustHaveUserAccountToAddComment()) {
-            if (isset($query['user-id'])) {
+            if (isset($query['userID'])) {
 
-                $query['user_id'] = $query['user-id'];
-                unset($query['user-id']);
+                $query['user_id'] = $query['userID'];
+                unset($query['userID']);
             }
             if (isset($query['authors'])) {
 
@@ -137,10 +137,10 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
     {
         // Convert the parameters
         if (\PoP\Comments\Server::mustHaveUserAccountToAddComment()) {
-            if (isset($comment_data['user-id'])) {
+            if (isset($comment_data['userID'])) {
 
-                $comment_data['user_id'] = $comment_data['user-id'];
-                unset($comment_data['user-id']);
+                $comment_data['user_id'] = $comment_data['userID'];
+                unset($comment_data['userID']);
             }
         }
         if (isset($comment_data['author'])) {
@@ -148,10 +148,10 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $comment_data['comment_author'] = $comment_data['author'];
             unset($comment_data['author']);
         }
-        if (isset($comment_data['author-email'])) {
+        if (isset($comment_data['authorEmail'])) {
 
-            $comment_data['comment_author_email'] = $comment_data['author-email'];
-            unset($comment_data['author-email']);
+            $comment_data['comment_author_email'] = $comment_data['authorEmail'];
+            unset($comment_data['authorEmail']);
         }
         if (isset($comment_data['author-URL'])) {
 
@@ -178,10 +178,10 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $comment_data['comment_parent'] = $comment_data['parent'];
             unset($comment_data['parent']);
         }
-        if (isset($comment_data['post-id'])) {
+        if (isset($comment_data['postID'])) {
 
-            $comment_data['comment_post_ID'] = $comment_data['post-id'];
-            unset($comment_data['post-id']);
+            $comment_data['comment_post_ID'] = $comment_data['postID'];
+            unset($comment_data['postID']);
         }
         return wp_insert_comment($comment_data);
     }
