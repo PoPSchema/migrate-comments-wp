@@ -33,7 +33,11 @@ class ObjectPropertyResolver extends \PoP\Comments\ObjectPropertyResolver_Base
     }
     public function getCommentParent($comment)
     {
-        return (int)$comment->comment_parent;
+        // If it has no parent, it is assigned 0. In that case, return null
+        if ($parent = $comment->comment_parent) {
+            return (int)$parent;
+        }
+        return null;
     }
     public function getCommentDateGmt($comment)
     {
