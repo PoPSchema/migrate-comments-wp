@@ -33,7 +33,7 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
         // Convert from the CMS status to PoP's one
         return $this->popToCMSCommentStatusConversion[$status];
     }
-    public function getComments($query, array $options = [])
+    public function getComments($query, array $options = []): array
     {
         if ($return_type = $options['return-type']) {
             if ($return_type == POP_RETURNTYPE_IDS) {
@@ -126,7 +126,7 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $query,
             $options
         );
-        return get_comments($query);
+        return (array) get_comments($query);
     }
     public function getComment($comment_id)
     {
