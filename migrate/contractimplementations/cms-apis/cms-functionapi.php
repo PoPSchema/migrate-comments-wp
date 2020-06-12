@@ -1,5 +1,7 @@
 <?php
+
 namespace PoP\Comments\WP;
+
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\ComponentModel\TypeDataResolvers\APITypeDataResolverTrait;
 
@@ -126,11 +128,11 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $query,
             $options
         );
-        return (array) get_comments($query);
+        return (array) \get_comments($query);
     }
     public function getComment($comment_id)
     {
-        return get_comment($comment_id);
+        return \get_comment($comment_id);
     }
     public function insertComment($comment_data)
     {
@@ -182,11 +184,15 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $comment_data['comment_post_ID'] = $comment_data['postID'];
             unset($comment_data['postID']);
         }
-        return wp_insert_comment($comment_data);
+        return \wp_insert_comment($comment_data);
     }
-    public function getCommentsNumber($post_id): int
+    public function getCommentNumber($post_id): int
     {
-        return (int)get_comments_number($post_id);
+        return (int) \get_comments_number($post_id);
+    }
+    public function areCommentsOpen($post_id): bool
+    {
+        return \comments_open($post_id);
     }
 }
 
