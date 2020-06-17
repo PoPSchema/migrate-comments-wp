@@ -54,9 +54,9 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $query['comment__in'] = $query['include'];
             unset($query['include']);
         }
-        if (isset($query['postID'])) {
-            $query['post_id'] = $query['postID'];
-            unset($query['postID']);
+        if (isset($query['customPostID'])) {
+            $query['post_id'] = $query['customPostID'];
+            unset($query['customPostID']);
         }
         if (\PoP\Comments\Server::mustHaveUserAccountToAddComment()) {
             if (isset($query['userID'])) {
@@ -179,10 +179,10 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $comment_data['comment_parent'] = $comment_data['parent'];
             unset($comment_data['parent']);
         }
-        if (isset($comment_data['postID'])) {
+        if (isset($comment_data['customPostID'])) {
 
-            $comment_data['comment_post_ID'] = $comment_data['postID'];
-            unset($comment_data['postID']);
+            $comment_data['comment_post_ID'] = $comment_data['customPostID'];
+            unset($comment_data['customPostID']);
         }
         return \wp_insert_comment($comment_data);
     }
