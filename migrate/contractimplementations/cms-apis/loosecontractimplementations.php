@@ -28,7 +28,7 @@ class CMSLooseContractImplementations extends AbstractLooseContractResolutionSet
 
 		$this->nameResolver->implementNames([
 			'popcms:dbcolumn:orderby:comments:date' => 'comment_date_gmt',
-			'popcms:dbcolumn:orderby:posts:comment-count' => 'comment_count',
+			'popcms:dbcolumn:orderby:customposts:comment-count' => 'comment_count',
 		]);
 	}
 }
