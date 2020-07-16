@@ -17,7 +17,12 @@ class ObjectPropertyResolver extends \PoP\Comments\ObjectPropertyResolver_Base
     }
     public function getCommentUserId($comment)
     {
-        return (int)$comment->user_id;
+        // Watch out! If there is no user ID, it stores it with ID "0"
+        $userID = (int)$comment->user_id;
+        if ($userID === 0) {
+            return null;
+        }
+        return $userID;
     }
     public function getCommentPostId($comment)
     {
