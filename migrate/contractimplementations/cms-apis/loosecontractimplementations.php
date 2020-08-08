@@ -1,5 +1,5 @@
 <?php
-namespace PoP\Comments\WP;
+namespace PoPSchema\Comments\WP;
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\LooseContracts\Facades\NameResolverFacade;
 use PoP\LooseContracts\Facades\LooseContractManagerFacade;

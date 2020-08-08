@@ -1,7 +1,7 @@
 {
-    "name": "getpop/migrate-comments-wp",
+    "name": "pop-schema/migrate-comments-wp",
     "type": "library",
-    "description": "(Temporary package) Migrate code to package https://github.com/getpop/comments-wp. Target package description: Implementation for WordPress of contracts from package \"Comments\"",
+    "description": "(Temporary package) Migrate code to package https://github.com/pop-schema/comments-wp. Target package description: Implementation for WordPress of contracts from package \"Comments\"",
     "keywords": [
         "PoP",
         "comments-wp"

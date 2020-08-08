@@ -1,5 +1,5 @@
 <?php
-namespace PoP\Comments\WP;
+namespace PoPSchema\Comments\WP;
 
 class Initialization
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace PoP\Comments\WP;
+namespace PoPSchema\Comments\WP;
 
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\ComponentModel\TypeDataResolvers\APITypeDataResolverTrait;
 
-class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
+class FunctionAPI extends \PoPSchema\Comments\FunctionAPI_Base
 {
     use APITypeDataResolverTrait;
 
@@ -58,7 +58,7 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
             $query['post_id'] = $query['customPostID'];
             unset($query['customPostID']);
         }
-        if (\PoP\Comments\Server::mustHaveUserAccountToAddComment()) {
+        if (\PoPSchema\Comments\Server::mustHaveUserAccountToAddComment()) {
             if (isset($query['userID'])) {
 
                 $query['user_id'] = $query['userID'];
@@ -137,7 +137,7 @@ class FunctionAPI extends \PoP\Comments\FunctionAPI_Base
     public function insertComment($comment_data)
     {
         // Convert the parameters
-        if (\PoP\Comments\Server::mustHaveUserAccountToAddComment()) {
+        if (\PoPSchema\Comments\Server::mustHaveUserAccountToAddComment()) {
             if (isset($comment_data['userID'])) {
 
                 $comment_data['user_id'] = $comment_data['userID'];

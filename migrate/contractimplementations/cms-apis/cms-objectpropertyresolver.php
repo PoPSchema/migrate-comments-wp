@@ -1,8 +1,8 @@
 <?php
-namespace PoP\Comments\WP;
+namespace PoPSchema\Comments\WP;
 use PoP\Hooks\Facades\HooksAPIFacade;
 
-class ObjectPropertyResolver extends \PoP\Comments\ObjectPropertyResolver_Base
+class ObjectPropertyResolver extends \PoPSchema\Comments\ObjectPropertyResolver_Base
 {
     public function getCommentContent($comment)
     {

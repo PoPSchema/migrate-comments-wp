@@ -6,7 +6,7 @@ Description: Implementation of WordPress functions for PoP CMS
 Plugin URI: https://getpop.org/
 Author: Leonardo Losoviz
 */
-namespace PoP\Comments\WP;
+namespace PoPSchema\Comments\WP;
 use PoP\Hooks\Facades\HooksAPIFacade;
 
 //-------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ class Plugin
             'PoP_Comments_Validation:provider-validation-class',
             array($this, 'getProviderValidationClass')
         );
-        
+
         // Priority: mid section, after PoP Posts WP
         HooksAPIFacade::getInstance()->addAction('plugins_loaded', array($this, 'init'), 260);
     }
@@ -32,7 +32,7 @@ class Plugin
     {
         return Validation::class;
     }
-    
+
     public function init()
     {
         if ($this->validate()) {
