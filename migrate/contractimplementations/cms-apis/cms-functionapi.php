@@ -4,6 +4,7 @@ namespace PoPSchema\Comments\WP;
 
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\ComponentModel\TypeDataResolvers\APITypeDataResolverTrait;
+use PoPSchema\SchemaCommons\DataLoading\ReturnTypes;
 
 class FunctionAPI extends \PoPSchema\Comments\FunctionAPI_Base
 {
@@ -38,7 +39,7 @@ class FunctionAPI extends \PoPSchema\Comments\FunctionAPI_Base
     public function getComments($query, array $options = []): array
     {
         if ($return_type = $options['return-type']) {
-            if ($return_type == POP_RETURNTYPE_IDS) {
+            if ($return_type == ReturnTypes::IDS) {
                 $query['fields'] = 'ids';
             }
         }
