@@ -135,58 +135,6 @@ class FunctionAPI extends \PoPSchema\Comments\FunctionAPI_Base
     {
         return \get_comment($comment_id);
     }
-    public function insertComment($comment_data)
-    {
-        // Convert the parameters
-        if (\PoPSchema\Comments\Server::mustHaveUserAccountToAddComment()) {
-            if (isset($comment_data['userID'])) {
-
-                $comment_data['user_id'] = $comment_data['userID'];
-                unset($comment_data['userID']);
-            }
-        }
-        if (isset($comment_data['author'])) {
-
-            $comment_data['comment_author'] = $comment_data['author'];
-            unset($comment_data['author']);
-        }
-        if (isset($comment_data['authorEmail'])) {
-
-            $comment_data['comment_author_email'] = $comment_data['authorEmail'];
-            unset($comment_data['authorEmail']);
-        }
-        if (isset($comment_data['author-URL'])) {
-
-            $comment_data['comment_author_url'] = $comment_data['author-URL'];
-            unset($comment_data['author-URL']);
-        }
-        if (isset($comment_data['author-IP'])) {
-
-            $comment_data['comment_author_IP'] = $comment_data['author-IP'];
-            unset($comment_data['author-IP']);
-        }
-        if (isset($comment_data['agent'])) {
-
-            $comment_data['comment_agent'] = $comment_data['agent'];
-            unset($comment_data['agent']);
-        }
-        if (isset($comment_data['content'])) {
-
-            $comment_data['comment_content'] = $comment_data['content'];
-            unset($comment_data['content']);
-        }
-        if (isset($comment_data['parent'])) {
-
-            $comment_data['comment_parent'] = $comment_data['parent'];
-            unset($comment_data['parent']);
-        }
-        if (isset($comment_data['customPostID'])) {
-
-            $comment_data['comment_post_ID'] = $comment_data['customPostID'];
-            unset($comment_data['customPostID']);
-        }
-        return \wp_insert_comment($comment_data);
-    }
     public function getCommentNumber($post_id): int
     {
         return (int) \get_comments_number($post_id);
