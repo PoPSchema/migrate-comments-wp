@@ -38,7 +38,7 @@ class FunctionAPI extends \PoPSchema\Comments\FunctionAPI_Base
     }
     public function getComments($query, array $options = []): array
     {
-        if ($return_type = $options['return-type']) {
+        if ($return_type = $options['return-type'] ?? null) {
             if ($return_type == ReturnTypes::IDS) {
                 $query['fields'] = 'ids';
             }
@@ -81,7 +81,7 @@ class FunctionAPI extends \PoPSchema\Comments\FunctionAPI_Base
             // $query['orderby'] => array('date' => 'DESC', 'title' => 'ASC');
         }
         // For the comments, if there's no limit then it brings all results
-        if ($query['limit']) {
+        if (isset($query['limit'])) {
             $query['number'] = $query['limit'];
             unset($query['limit']);
         }
